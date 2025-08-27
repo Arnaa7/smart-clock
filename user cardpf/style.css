@@ -1,0 +1,25 @@
+body{
+    font-family: Arial, sans-serif;
+  background-color: #88b8e8;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 1o0vh;
+}
+
+
+.profile-card {
+background-color: #f5f7f9;
+padding: 30px;
+text-align: center;
+width: 200px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn{
+   background-color: #314bf2;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   text-emphasis-color: white;
+   border-color: none;
+}

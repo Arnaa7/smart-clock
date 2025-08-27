@@ -1,0 +1,31 @@
+body {
+  background-color: #88b8e8;  
+  display: flex;              
+  justify-content: center;    
+  align-items: center;        
+  height: 100vh;              
+}
+
+
+.book-card {
+  background-color: rgb(89, 180, 83);  
+  padding: 50px;                       
+  text-align: center;                  
+  border-radius: 10px;                 
+  width: 300px;                      
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+.btn {
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: smaller;
+font-style: bold;
+background-color: rgb(32, 77, 224);
+padding: 6x 12x;
+width: 30%;
+overflow: hidden;
+border-radius: 5px;
+border: white;
+padding: 5px 10px 5px 10px;
+
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For My Favorite Person 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffe6f1;
+      --card:#fff6fb;
+      --accent:#ff7aa2;
+      --accent-dark:#ff4d84;
+      --text:#4a3b47;
+      --shadow:0 20px 60px rgba(255, 122, 162, .25);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:radial-gradient(1200px 800px at 20% 10%, #fff, var(--bg));
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+    }
+
+    /* Floating hearts background */
+    .hearts{position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0}
+    .hearts span{
+      position:absolute; bottom:-10vh; left:var(--x,50%);
+      width:16px; height:16px; transform:rotate(45deg);
+      background:var(--accent);
+      box-shadow:var(--shadow);
+      animation:floatUp linear var(--t,8s) infinite;
+      opacity:.8; filter:saturate(110%);
+    }
+    .hearts span::before,.hearts span::after{
+      content:""; position:absolute; width:16px; height:16px; border-radius:50%; background:var(--accent);
+    }
+    .hearts span::before{left:-8px}
+    .hearts span::after{top:-8px}
+    @keyframes floatUp{to{transform:translateY(-120vh) rotate(45deg); opacity:0}}
+
+    /* Card */
+    .card-wrap{position:relative; z-index:1; padding:24px}
+    .card{
+      width:min(92vw, 560px);
+      background:var(--card);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:68px 26px 24px;
+      position:relative; overflow:hidden;
+      border:2px dashed #ffc2d5;
+    }
+
+    /* Fancy waving ribbon */
+    .ribbon{
+      --ribbon-color:#ff8eb4;
+      position:absolute; top:12px; left:50%; transform:translateX(-50%);
+      padding:12px 38px;
+      background:var(--ribbon-color);
+      color:white;
+      font-family:"Dancing Script", cursive;
+      font-size:26px;
+      font-weight:bold;
+      text-align:center;
+      border-radius:6px;
+      box-shadow:0 6px 12px rgba(0,0,0,.15);
+      animation:waveribbon 3s ease-in-out infinite;
+    }
+    .ribbon::before, .ribbon::after{
+      content:"";
+      position:absolute; bottom:-12px;
+      border:18px solid transparent;
+      border-top-color:var(--ribbon-color);
+    }
+    .ribbon::before{ left:-26px; transform:rotate(2deg)}
+    .ribbon::after{ right:-26px; transform:rotate(-2deg)}
+
+    @keyframes waveribbon {
+      0%,100% { transform:translateX(-50%) rotate(0deg); }
+      50% { transform:translateX(-50%) rotate(2deg); }
+    }
+
+    .title{
+      font-family:"Dancing Script", cursive; font-size:clamp(28px, 6vw, 52px);
+      text-align:center; margin:12px 0 10px; color:var(--accent-dark);
+      letter-spacing:.5px;
+    }
+    .subtitle{ text-align:center; margin:0 0 20px; opacity:.8 }
+
+    .panel{
+      background:#fff; border-radius:18px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.06);
+      transition:transform .5s ease, opacity .5s ease, filter .5s ease; transform-origin:top center;
+    }
+
+    .msg{font-size:clamp(18px, 2.6vw, 20px); line-height:1.6; margin:16px 0 0}
+    .big{font-family:"Dancing Script", cursive; font-size:clamp(36px, 7vw, 68px); color:var(--accent-dark); text-align:center; margin:10px 0 0}
+
+    .actions{display:flex; gap:12px; justify-content:center; margin-top:18px}
+    button{
+      appearance:none; border:0; padding:12px 18px; border-radius:999px; font-weight:600;
+      background:var(--accent); color:white; cursor:pointer; box-shadow:0 10px 20px rgba(255, 77, 132,.35);
+      transition:transform .15s ease, filter .15s ease;
+    }
+    button:hover{transform:translateY(-1px)}
+    button.secondary{background:white; color:var(--accent-dark); border:2px solid #ffc2d5}
+
+    /* Open/close states */
+    .card[data-open="false"] .panel--inside{transform:scale(.96) translateY(-6px); filter:blur(1px); opacity:.0}
+    .card[data-open="true"] .panel--cover{transform:rotateX(86deg) translateY(-12px); opacity:0; filter:blur(2px)}
+
+    .footer{margin-top:14px; text-align:center; font-size:13px; opacity:.7}
+    .heart{display:inline-block; transform:translateY(2px)}
+  </style>
+</head>
+<body>
+  <!-- floating hearts -->
+  <div class="hearts" aria-hidden="true"></div>
+
+  <div class="card-wrap">
+    <div class="card" id="card" data-open="false">
+      <div class="ribbon">My ken ❤️</div>
+
+      <h1 class="title">For my favorite human 💘</h1>
+      <p class="subtitle">A tiny card from me to you</p>
+
+      <!-- cover panel (what you see first) -->
+      <section class="panel panel--cover" aria-live="polite">
+        <p class="msg" style="text-align:center; margin-top:14px">Tap the button to open your surprise ✨</p>
+      </section>
+
+      <!-- inside panel (revealed) -->
+      <section class="panel panel--inside">
+        <p class="big">I love you loki<3</p>
+        <p class="msg">
+          You make me smile, and my heart very, very happy. I just want u to know how much you mean to me!! everything is easier with u my lovee . I'm so grateful to have u. ydk how much high impact you have in my life.
+          Thank you for being you — and for choosing me. I LOVEEEEEEE YOUUUUUUU SOO MUCHHHHHH LUCKYYYYYYY my cutieee💞
+        </p>
+        <p class="msg">— Yours, <strong>Aradhana</strong></p>
+      </section>
+      <div class="actions">
+<button id="toggle">Open Card</button>
+
+</div>
+
+  
+
+  <script>
+    // sprinkle some randomly floating hearts
+    const hearts = document.querySelector('.hearts');
+    for(let i=0;i<24;i++){
+      const s=document.createElement('span');
+      s.style.setProperty('--x', Math.random()*100 + 'vw');
+      s.style.setProperty('--t', (7+Math.random()*6) + 's');
+      s.style.animationDelay = (Math.random()*-10) + 's';
+      s.style.opacity = String(0.55 + Math.random()*0.45);
+      hearts.appendChild(s);
+    }
+
+    // open/close toggle
+    const card = document.getElementById('card');
+    const btn = document.getElementById('toggle');
+    btn.addEventListener('click', () => {
+      const isOpen = card.getAttribute('data-open') === 'true';
+      card.setAttribute('data-open', String(!isOpen));
+      btn.textContent = isOpen ? 'Open Card' : 'Close Card';
+    });
+
+    // Optional: save card area as image for sharing
+    document.getElementById('download').addEventListener('click', () => {
+      window.print();
+    });
+
+    // Start closed for dramatic effect
+    card.setAttribute('data-open','false');
+  </script>
+</body>
+</html>
